@@ -2,7 +2,7 @@ var translateBtn = document.querySelector("#btn-translate");
 var textBox = document.getElementById("txt-input");
 var translateBox = document.getElementById("translate-box");
 
-var url = "https://api.funtranslations.com/translate/pirate.json?text=";
+var url = "https://api.funtranslations.com/translate/shakespeare.json?text=";
 
 function getUrl(input) {
   return url + input;
@@ -15,6 +15,8 @@ function clickeventhandle() {
 
   fetch(getUrl(translate))
     .then((res) => res.json())
-    .then((e) => (translateBox.innerText = e.contents.translated))
+    .then((e) => {
+      translateBox.innerText = e.contents.translated;
+    })
     .catch("error");
 }
